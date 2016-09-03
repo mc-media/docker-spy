@@ -1,0 +1,4 @@
+package: .
+import:
+- package: github.com/fsouza/go-dockerclient
+- package: github.com/miekg/dns
