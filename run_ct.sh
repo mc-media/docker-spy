@@ -3,6 +3,7 @@
 # Run dns-forwarder container bound to docker default bridge ip
 # using recursor and local domain provided as environment variables
 # with fallback to default values.
+# The container will be automatically started on system boot
 
 set -e
 
@@ -16,4 +17,5 @@ docker run --name dns-forwarder --hostname dns-forwarder -d \
            -v /var/run/docker.sock:/var/run/docker.sock \
            -e DNS_RECURSOR=${DNS_RECURSOR} \
            -e DNS_DOMAIN=${DNS_DOMAIN} \
+           --restart always \
            mcmediacom/dns-forwarder
